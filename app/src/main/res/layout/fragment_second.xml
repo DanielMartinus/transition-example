@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="217dp"
         android:scaleType="centerCrop"
-        android:transitionName="shared_element_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
