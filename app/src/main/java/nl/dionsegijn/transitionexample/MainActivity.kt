@@ -1,5 +1,6 @@
 package nl.dionsegijn.transitionexample
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -27,14 +28,15 @@ class MainActivity : AppCompatActivity(), TransitionNavigator {
     override fun startTransition(view: View, imageUrl: String, transitionId: String) {
         val tag = "SecondFragment"
         val fragment = SecondFragment.create(imageUrl, transitionId)
-        fragment.sharedElementEnterTransition = MaterialContainerTransform(applicationContext)
-        fragment.sharedElementReturnTransition = MaterialContainerTransform(applicationContext)
+        val transition = MaterialContainerTransform(applicationContext).apply {
+            scrimColor = Color.WHITE
+        }
+        fragment.sharedElementEnterTransition = transition
 
         Log.d("transition","shared_element_container_$transitionId")
 
         supportFragmentManager
             .beginTransaction()
-            .setReorderingAllowed(true)
             .addSharedElement(view,  "shared_element_container_$transitionId")
             .replace(R.id.container, fragment, tag)
             .addToBackStack(tag)
