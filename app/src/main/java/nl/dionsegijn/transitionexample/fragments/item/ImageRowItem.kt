@@ -26,6 +26,7 @@ class ImageRowItem(
             .load(imageUrl)
             .apply(requestOptions)
             .into(viewHolder.imageView)
+        viewHolder.imageView.transitionName = "shared_element_container_$id"
         viewHolder.imageView.setOnClickListener { onOpenImage(viewHolder.imageView, imageUrl, id) }
     }
 

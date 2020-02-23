@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity(), TransitionNavigator {
         val tag = "SecondFragment"
         val fragment = SecondFragment.create(imageUrl, transitionId)
         fragment.sharedElementEnterTransition = MaterialContainerTransform(applicationContext)
+        fragment.sharedElementReturnTransition = MaterialContainerTransform(applicationContext)
 
         Log.d("transition","shared_element_container_$transitionId")
 

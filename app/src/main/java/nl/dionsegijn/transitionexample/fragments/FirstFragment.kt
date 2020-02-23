@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.transition.Hold
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import kotlinx.android.synthetic.main.fragment_first.*
@@ -17,6 +18,11 @@ class FirstFragment : Fragment() {
     private val imageUrl = "https://images.unsplash.com/photo-1582343129400-d9883f401c36"
 
     private val imageAdapter = GroupAdapter<GroupieViewHolder>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        exitTransition = Hold()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
