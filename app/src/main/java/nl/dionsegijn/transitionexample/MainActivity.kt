@@ -3,6 +3,7 @@ package nl.dionsegijn.transitionexample
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import com.google.android.material.transition.MaterialContainerTransform
 import nl.dionsegijn.transitionexample.fragments.FirstFragment
 import nl.dionsegijn.transitionexample.fragments.SecondFragment
@@ -23,9 +24,9 @@ class MainActivity : AppCompatActivity(), TransitionNavigator {
             .commit()
     }
 
-    override fun startTransition(view: View) {
+    override fun startTransition(view: View, imageUrl: String) {
         val tag = "SecondFragment"
-        val fragment = SecondFragment()
+        val fragment = SecondFragment.create(imageUrl)
         fragment.sharedElementEnterTransition = MaterialContainerTransform(applicationContext)
 
         supportFragmentManager
