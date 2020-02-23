@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_first.*
 import nl.dionsegijn.transitionexample.R
 
@@ -23,8 +26,14 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val density = (8f * view.context.resources.displayMetrics.density).toInt()
+        val requestOptions = RequestOptions()
+            .transform(CenterCrop(), RoundedCorners(density))
+
         Glide.with(this)
             .load(imageUrl)
+            .apply(requestOptions)
             .into(imageView)
 
         imageView.setOnClickListener {
