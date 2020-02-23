@@ -33,7 +33,8 @@ class FirstFragment : Fragment() {
             adapter = imageAdapter
         }
         imageAdapter.update(listOf(
-            ImageRowItem("1", imageUrl) { imageView, url, id -> onOpenImage(imageView, url, id) }
+            ImageRowItem("1", imageUrl) { imageView, url, id -> onOpenImage(imageView, url, id) },
+            ImageRowItem("2", imageUrl) { imageView, url, id -> onOpenImage(imageView, url, id) }
         ))
     }
 

@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(), TransitionNavigator {
 
         supportFragmentManager
             .beginTransaction()
+            .setReorderingAllowed(true)
             .addSharedElement(view,  "shared_element_container_$transitionId")
             .replace(R.id.container, fragment, tag)
             .addToBackStack(tag)
